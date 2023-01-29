@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoMaster</title>
+</head>
+<body>
+
+<header>
+<nav class="navbar bg-primary fixed-top"  style=" background-color: #e3f2fd; ">
+    <div class="container-fluid">
+      <span class="navbar-brand text-white fw-bold ms-5">
+        <i class="fa-solid fa-clipboard-list"></i> ToDoMaster 
+      </span>
+    <div class="ms-auto"><i routerLink="" class="fa-solid fa-right-from-bracket text-white me-5 fs-5"></i></div>
+    </div>
+  </nav>
+</header>
+
+  <section class="section">
+  
+    <div class="row " style="height:500px;">
+
+      <div class="col"></div>
+
+    
+    <!-- Tasks -->
+      <div id="TaskContainer" class="col-md-8 bg-white rounded p-3">   
+        
+
+        <div id="addTask-left" class="  ">
+          <!-- Task input for desktop -->
+          <div id="user" class=" p-1 pt-2 ps-2 mt-0 text-start" >
+            <h4 class="text-white ms-3">Welcome {{user}}</h4>
+          </div>
+          <div class="input-group  p-4">
+            <input id="task" [(ngModel)]="task"  class=" form-control" type="text" placeholder="Enter the task" >
+            <button (click)="addTask()" (click)="clearBox()" class="btn btn-success rounded-end" type="button" >+ Add</button><br>
+          </div>
+        </div>
+
+          <div  id="addTask-right" class="rounded ">
+            <!-- Task input  for smart phones-->
+            <div class=" p-1 pt-2 ps-2 mt-4 rounded-top">
+              <h4 class="text-white">Welcome {{user}}</h4>
+            </div>
+            <div class="input-group  p-4">
+              <input id="task" [(ngModel)]="task"  class=" form-control" type="text" placeholder="Enter the task" >
+              <button (click)="addTask()" (click)="clearBox()" class="btn btn-success rounded-end" type="button" >+ Add</button><br>
+            </div>
+          </div>
+
+          <div class="card bg-primary p-1 pt-2 ps-2 mt-3" >
+          <h4 class="text-white">Tasks:</h4>
+          </div>
+
+        <div  id="todoList" class="ps-4 pe-2" style="overflow-y: auto; ">
+          <!-- Todo Lists -->
+          <div id="tasks" *ngFor="let t of tasks; let i= index" class="input-group rounded row p-2  border-0 mt-4 "> 
+              <div class="col-md-10 border-0 pt-2" ><span class="text-primary">{{i+1}}. </span>{{t}}</div>
+              <button (click)="editTask(i)" (click)="clearBox()" class="btn edit border-0  col me-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square rounded-circle"></i></button>
+              <button  (click)="removeTask(i)" class="btn remove border-0  col"><i class="fa-solid fa-trash rounded-circle"></i></button><br>
+                  <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content"> 
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Task:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <div class="input-group  p-4">
+                      <input id="task" [(ngModel)]="etask"  class=" form-control" type="text" placeholder="Enter the task" >
+                      <button (click)="updateTask(i)" (click)="clearBox()" class="btn btn-success rounded-end" data-bs-dismiss="modal" type="button" >Save changes</button><br>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+
+        
+
+      </div>
+      <div class="col"></div>
+
+    
+    </div>
+
+    
+
+  </section>
+
+  <footer class="bg-dark text-center text-white ">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a mdbRipple class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">ToDoMaster &reg;</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  
+  
+ 
+</body>
+</html>

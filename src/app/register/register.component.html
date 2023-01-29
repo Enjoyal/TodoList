@@ -1,0 +1,33 @@
+<div class="container w-25 py-5" style="min-width: 350px;">
+    <div  class="card mt-5  bg-dark text-white" style="border-radius: 1rem;">
+      <div class="card-body p-4 text-center">
+
+        <h2 class="fw-bold  mt-2 mb-2 text-success"><i class="fa-solid fa-clipboard-list"></i> ToDoMaster</h2>
+        <p class="text-white-50 mb-4">Please enter  Username and password!</p>
+
+        <form [formGroup]="registerForm" action="">
+
+          <div class="form-outline form-white mb-4">
+
+            <input type="text" id="reg_uname" formControlName="uname" [(ngModel)]="uname" placeholder="Username" class="form-control  mb-3" />
+            <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched" style="color: red; text-align:left;">Invalid Username </div>
+            <!-- <div *ngIf="uname in userDetails && this.registerForm.get('uname')?.touched" style="color: red; text-align:left;">Username Already exist </div> -->
+
+
+            <input type="password" id="reg_pswd" formControlName="pswd" [(ngModel)]="pswd" placeholder="Password" class="form-control mb-3" />
+            <div *ngIf="this.registerForm.get('pswd')?.errors && this.registerForm.get('pswd')?.touched" style="color: red; text-align:left;">Invalid Password</div>
+
+            <input type="password" id="reg_pswd2" formControlName="pswd2" [(ngModel)]="pswd2" placeholder="Confirm Password" class="form-control" />
+            <div *ngIf="this.registerForm.get('pswd2')?.errors && this.registerForm.get('pswd2')?.touched" style="color: red; text-align:left;">Invalid Password</div>
+            <div *ngIf="pswd2!=pswd && this.registerForm.get('pswd2')?.touched" style="color: red; text-align:left;">Password doesnt match</div>
+
+            
+          </div>
+            
+          <button class="btn btn-success px-4 py-2 mt-3" (click)="register()" type="submit">Register</button>
+
+          <p class="text-white-50 mt-4">Already have an account? <a routerLink="" class="text-success fw-bold">Sign In</a></p>
+        </form>
+      </div>  
+    </div>
+</div>

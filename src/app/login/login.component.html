@@ -1,0 +1,31 @@
+<div class="container w-25 pt-5 py-5" style="min-width: 350px;">
+    <div  class="card mt-5 bg-dark text-white" style="border-radius: 1rem;">
+      <div class="card-body p-4 text-center">
+
+          <h2 class="fw-bold  mt-2 mb-4 text-success"><i class="fa-solid fa-clipboard-list"></i> ToDoMaster</h2>
+          
+          <p class="text-white-50 mb-3">Please enter your Username and password!</p>
+
+          <form [formGroup]="loginForm" action="">
+
+          <div class="form-outline form-white mb-4">
+            <input type="email" id="log_uname"  formControlName="uname" [(ngModel)]="uname"  placeholder="Username" class="form-control  mb-3"/>
+            <div *ngIf="this.loginForm.get('uname')?.errors && this.loginForm.get('uname')?.touched" style="color: red; text-align:left;">Invalid Account no</div>
+
+            <input type="password" id="log_pswd" formControlName="pswd" [(ngModel)]="pswd" placeholder="Password" class="form-control"/>
+            <div *ngIf="this.loginForm.get('pswd')?.errors && this.loginForm.get('pswd')?.touched" style="color: red; text-align:left;">Invalid Account no</div>
+
+          </div>
+            
+          <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#">Forgot password?</a></p>
+
+          <button class="btn btn-outline-light px-4" (click)="login()" type="submit">Login</button>
+
+          <p class="text-white-50 mt-4">Don't have an account? <br> <a routerLink="register" class="text-success fw-bold">Sign Up</a></p>
+        
+        </form>
+
+      </div>
+      
+    </div>
+</div>

@@ -1,0 +1,157 @@
+:root{
+    --dark:#111;
+    --md-dark:#1a1a1a;
+    --light-dark: #333;
+}
+
+body{
+    background-color: #111;
+    overflow-x: hidden;
+}  
+
+header{
+    position: sticky;
+     top: 0; 
+     z-index: 1000;
+}
+
+nav .fa-right-from-bracket{
+    cursor: pointer;
+    transition: .5s ease;
+}
+nav .fa-right-from-bracket:hover{
+    transform: scale(1.12);
+    cursor: pointer;
+}
+.navbar-brand{
+    font-size: 24px;
+}
+
+#TaskContainer{
+    margin-top: 150px;
+    width: 850px;
+    /* padding: 20px; */
+}
+#addTask-left{
+    position: fixed;
+    top: 63px;left: 0;
+    z-index:1000;
+    height: 100%;
+    width: 25rem;
+    background: #1a1a1a;
+    /* display: flex;
+    flex-flow: column; */
+    align-items: center;
+    justify-content:space-evenly;
+    text-align: center;
+    /* min-width: 0px; */
+}
+
+#user{
+    background-color: var(--light-dark);
+}
+
+#addTask-right{
+    /* visibility: hidden; */
+    display :none;
+    background-color: #333;
+
+}
+
+
+
+.section{
+    min-height: 100vh;
+    padding-left: 25rem;
+    background-color: var(--dark);
+}
+
+#todoList{
+    height: 400px;
+}
+/* tasks container */
+
+#tasks{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .5s ease;
+    cursor: pointer;
+
+}
+#todoList::-webkit-scrollbar{
+    display: none;
+}
+#tasks:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+#tasks .btn i{
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    padding-top: 8px;
+}
+#tasks .edit i{
+    color: grey;
+    transition: .5s ease;
+}
+#tasks .remove i{
+    color: rgb(255, 54, 54);
+    transition: .5s ease;
+}
+
+#tasks .edit i:hover{
+    color: #fff;
+    background-color: grey;
+}
+
+#tasks .remove i:hover{
+    color: #fff;
+    background-color: rgb(255, 54, 54);
+}
+
+#tasks:hover .btn i{
+    opacity: 1;
+    transition: .5s ease;
+}
+
+footer{
+    padding-left: 25rem;
+
+}
+
+
+
+
+
+
+@media(max-width:991px){
+    #addTask-left{
+        /* left: -120%; */
+        width:200px;
+        display: none;
+
+    }
+    #addTask-right{
+        display: block;
+
+    }
+    .section{
+        padding:50px;
+    }
+    #TaskContainer{
+        margin-top: 50px;
+        height: 650px;
+    }
+    footer{
+        padding-left: 0px;
+        margin-top: 50px;
+    }
+   
+    /* #todoList,#addTask-right,#TaskContainer{
+        background-color: #1a1a1a;
+    } */
+    #todoList{
+        height: 400px;
+    }
+
+}
